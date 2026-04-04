@@ -40,5 +40,4 @@ return [
         'client_secret' => ENV('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_REDIRECT'),
     ],
-
 ];

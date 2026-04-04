@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\User;
+use App\Models\LoginHistory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -73,6 +74,15 @@ class GoogleController extends Controller
         // Log the user in
         Auth::login($user);
 
+        LoginHistory::create([
+            'user_id' => $user->id,
+            'ip' => $request->ip(),
+            'user_agent' => $request->header('User-Agent'),
+            'created_at' => now(),
+        ]);
+
         return redirect('/dashboard');
     }
+
+
 }
