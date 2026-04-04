@@ -43,5 +43,11 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+
+        <div>
+            <a href="{{ route('google.login') }}" class="mt-4 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-150">
+                {{ __('Login with Google') }}
+            </a>
+        </div>
     </form>
 </x-guest-layout>
