@@ -46,4 +46,9 @@ return [
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
         'redirect' => env('FACEBOOK_REDIRECT'),
     ],
+
+    'firebase' => [
+        'api_key' => env('VITE_FIREBASE_API_KEY'),
+        'project_id' => env('VITE_FIREBASE_PROJECT_ID'),
+    ],
 ];

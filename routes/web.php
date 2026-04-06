@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\FacebookController;
+use App\Http\Controllers\FirebaseController;
 use App\Http\Controllers\GoogleController;
 
 
@@ -38,5 +39,10 @@ Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallb
 
 Route::get('/auth/facebook', [FacebookController::class, 'redirectToFacebook'])->name('facebook.login');
 Route::get('/auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback'])->name('facebook.callback');
+
+Route::get('/auth/firebase', [FirebaseController::class, 'showPhoneForm'])->name('firebase.phone');
+Route::post('/auth/firebase/send-otp', [FirebaseController::class, 'sendOTP'])->name('firebase.send-otp');
+Route::post('/auth/firebase/verify-otp', [FirebaseController::class, 'verifyOTP'])->name('firebase.verify-otp');
+Route::post('/auth/firebase/callback', [FirebaseController::class, 'handleCallback'])->name('firebase.callback');
 
 require __DIR__.'/auth.php';
